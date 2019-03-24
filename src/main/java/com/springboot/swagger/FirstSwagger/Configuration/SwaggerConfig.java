@@ -4,14 +4,16 @@ package com.springboot.swagger.FirstSwagger.Configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
-@EnableSwagger2
+
 @Configuration
+@EnableSwagger2
 public class SwaggerConfig {
 
     @Bean
@@ -20,6 +22,20 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.springboot.swagger.FirstSwagger"))
                 .paths(regex("/rest.*"))
-                .build();
+                .build()
+                .apiInfo(metaInfo());
+    }
+
+    private ApiInfo metaInfo(){
+        ApiInfo apiInfo = new ApiInfo(
+                "Spring-Boot-Swagger Application",
+                "Spring boot swagger for practice",
+                "1.0",
+                "Terms of Service",
+                "kaushik",
+                "Apache Licence Version 2.0",
+                "https://www.apache.org/licence.html"
+        );
+        return apiInfo;
     }
 }

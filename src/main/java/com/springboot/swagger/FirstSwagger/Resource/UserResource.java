@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/rest/user")
 public class UserResource {
 
     @GetMapping
@@ -30,9 +30,9 @@ public class UserResource {
         private String userName;
         private Long Salary;
 
-        public User(String userName, Long salary) {
+        public User(String userName, Long Salary) {
             this.userName = userName;
-            this.Salary = salary;
+            this.Salary = Salary;
         }
 
         public String getUserName() {
@@ -47,8 +47,8 @@ public class UserResource {
             return Salary;
         }
 
-        public void setSalary(Long salary) {
-            Salary = salary;
+        public void setSalary(Long Salary) {
+           this.Salary = Salary;
         }
     }
 }
