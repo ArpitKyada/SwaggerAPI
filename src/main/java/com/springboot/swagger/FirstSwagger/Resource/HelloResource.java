@@ -1,5 +1,6 @@
 package com.springboot.swagger.FirstSwagger.Resource;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/rest/hello")
+@Api(value = "Hello Resource", description = "Displays the HelloWorld")
 public class HelloResource {
 
     @ApiOperation(value = "Returns HelloWorld")
@@ -22,13 +24,13 @@ public class HelloResource {
         return "Hello World";
     }
 
-    @ApiOperation(value = "Returns HelloWorld")
+    @ApiOperation(value = "Returns Users Input")
     @PostMapping("/post")
     public String helloPost(@RequestBody final String hello){
         return hello;
     }
 
-    @ApiOperation(value = "Returns HelloWorld")
+    @ApiOperation(value = "PUT method")
     @PutMapping("/put")
     public String helloPut(@RequestBody final String hello){
         return hello;
